@@ -4,9 +4,22 @@ from pydantic_settings import BaseSettings, SettingsConfigDict
 
 class Settings(BaseSettings):
   APP_NAME: str = "Auto-ML"
-  STORAGE_URL: str
 
-  model_config = SettingsConfigDict(env_file= ".env", env_file_encoding= "utf-8")
+  # DB
+  DATABASE_URL: str
+
+  # storage secret's
+  PROVIDER: str
+  BUCKET: str
+  ENDPOINT_URL: str
+  ACCESS_KEY: str
+  SECRET_KEY: str
+  TTL: int
+
+  model_config = SettingsConfigDict(
+    env_file= ".env", 
+    env_file_encoding= "utf-8"
+  )
 
 @lru_cache
 def get_settings():
