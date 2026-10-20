@@ -2,7 +2,7 @@ class AppError(Exception):
   def __init__(self, message: str= "An application error occured."):
     self.message = message
 
-    super.__init__(self.message)
+    super().__init__(self.message)
 
 
 class InvalidDatasetError(AppError):
